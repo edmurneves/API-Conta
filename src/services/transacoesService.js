@@ -5,8 +5,7 @@ const getAll = () => {
 }
 
 const getByClientId = async (id) => {
-    const rows = await transacoesModel.getByClientId(id);
-    console.log(rows);    
+    const rows = await transacoesModel.getByClientId(id);     
 
     if (rows.length === 0) {
         const error = {status:404, message: 'Este cliente não possui ações!' };
