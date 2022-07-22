@@ -5,9 +5,9 @@ const contaService = require('../services/contaService');
 const contaRouter = express.Router();
 
 contaRouter.get('/:id', async (req, res) => {
-    const { id } = req.params;
-        
-    const rows = await contaService.getById(id);   
+    const { id } = req.params;    
+
+    const rows = await contaService.getById(id.charAt(1));   
     
     res.status(200).json(rows[0]);    
 });
