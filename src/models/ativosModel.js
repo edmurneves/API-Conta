@@ -2,4 +2,7 @@ const connection = require('../db');
 
 const getAll = () => connection.execute('SELECT * FROM desafioXP.ativos');
 
-module.exports = { getAll };
+const getById = (id) => connection
+.execute('SELECT * FROM desafioXP.ativos WHERE codAtivo = ?', [id]);
+
+module.exports = { getAll, getById };
