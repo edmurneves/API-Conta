@@ -13,10 +13,10 @@ ativosRouter.get('/:id', async (req, res) => {
     const { id } = req.params;
 
     if (id.charAt(0) === 'a') {
-        const rows = await ativosService.getById(id.charAt(1));
+        const rows = await ativosService.getById(id.replace(/^./,""));
         res.status(200).json(rows[0]);        
     } else if (id.charAt(0) === 'c') {
-        const rows = await transacoesService.getByClientId(id.charAt(1));
+        const rows = await transacoesService.getByClientId(id.replace(/^./,""));
         res.status(200).json(rows);
     } else {
         res.status(404).json({message: 'Código de "Ativo ou Cliente" inválido'})
