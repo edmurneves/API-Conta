@@ -14,4 +14,6 @@ const getById = async (id) => {
     return rows;
 }
 
+
+
 module.exports = { getAll, getById };
