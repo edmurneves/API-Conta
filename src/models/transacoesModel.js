@@ -13,5 +13,36 @@ const getByClientId = async (id) => {
         
     return result;
 }
+const getByClientIdAtivo = async (codCliente, codAtivo) => {
 
-module.exports = { getAll, getByClientId };
+    const query = `SELECT * FROM desafioXP.transacoes WHERE codCliente = ? AND codAtivo = ?;`
+    const [result] = await connection.execute(query, [codCliente, codAtivo]);
+
+    return result;
+}
+
+const createTransacao = async(codCliente, codAtivo, qdteAtivo) => {
+    const query = `INSERT INTO desafioXP.transacoes (codCliente, codAtivo, qtde)
+    VALUES	(?, ?, ?);`
+    const [result] = await connection.execute(query, [codCliente, codAtivo, qdteAtivo]);
+
+    return result;
+}
+
+const updateTransacao = async(codCliente, codAtivo, newQtde) => {
+
+    const query = `UPDATE desafioXP.transacoes SET qtde = ? WHERE codCliente = ? AND codAtivo = ?;`
+
+    const [result] = await connection.execute(query, [newQtde, codCliente, codAtivo ]);
+
+    return result;
+
+}
+
+module.exports = { 
+    getAll, 
+    getByClientId, 
+    getByClientIdAtivo, 
+    createTransacao,
+    updateTransacao,
+ };
