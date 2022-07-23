@@ -32,22 +32,38 @@ VALUES
 	('Aparecido', 'cido@gmail.com','123456', 2000.00);
 	
 
-CREATE TABLE desafioXP.transacoes (
+CREATE TABLE desafioXP.transacoes (    
+    codCliente INT NOT NULL,
+    codAtivo INT NOT NULL,
+    qtde INT NOT NULL,   
+    FOREIGN KEY (codCliente) REFERENCES clientes(codCliente),
+	FOREIGN KEY (codAtivo) REFERENCES ativos(codAtivo),
+    CONSTRAINT PRIMARY KEY (codCliente, codAtivo)	
+)  ENGINE=INNODB;
+
+INSERT INTO desafioXP.transacoes (codCliente, codAtivo, qtde)
+VALUES
+	(1, 1, 10),
+	(2, 2, 15),
+	(3, 3, 20),
+	(2, 3, 10),
+	(2, 3, 15);
+
+CREATE TABLE desafioXP.logtransacoes (
     codTrans INT AUTO_INCREMENT PRIMARY KEY,
     tipo VARCHAR(10) NOT NULL,
     historico DATETIME NOT NULL,
     codCliente INT NOT NULL,
     codAtivo INT NOT NULL,
-    qtde INT NOT NULL,   
-    FOREIGN KEY (codCliente) REFERENCES clientes(codCliente),
-	FOREIGN KEY (codAtivo) REFERENCES ativos(codAtivo)	
+    qtde INT NOT NULL    
 )  ENGINE=INNODB;
 
-INSERT INTO desafioXP.transacoes (tipo, historico, codCliente, codAtivo, qtde)
+INSERT INTO desafioXP.logtransacoes (tipo, historico, codCliente, codAtivo, qtde)
 VALUES
 	('compra', '2022-07-15 10:45:55', 1, 1, 10),
 	('compra', '2022-07-15 10:50:55', 2, 2, 15),
 	('compra', '2022-07-15 10:55:55', 3, 3, 20),
 	('venda', '2022-07-15 12:20:55', 2, 3, 10),
 	('venda', '2022-07-15 12:50:55', 2, 3, 15);
+
 	
