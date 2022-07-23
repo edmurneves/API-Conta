@@ -20,13 +20,13 @@ contaRouter.get('/:id', checkCodConta, async (req, res) => {
 contaRouter.post('/saque', checkSaqueDeposito, async (req, res) => {   
     const newSaldo = await contaService.debit(req.body);
     
-    return res.status(200).json({message: `Saque efetuado com sucesso! Seu saldo atual é de e ${newSaldo} Reais`});
+    return res.status(200).json({message: `Saque efetuado com sucesso! Seu saldo atual é de ${newSaldo} Reais`});
 });
 
 contaRouter.post('/deposito', checkSaqueDeposito, async (req, res) => {    
     const newSaldo = await contaService.credit(req.body);
     
-    return res.status(200).json({message: `Deposito efetuado com sucesso! Seu saldo atual é de e ${newSaldo} Reais`});
+    return res.status(200).json({message: `Deposito efetuado com sucesso! Seu saldo atual é de ${newSaldo} Reais`});
 });
 
 
