@@ -4,9 +4,16 @@ const investimentosService = require('../services/investimentosService');
 const investimentosRouter = express.Router();
 
 investimentosRouter.post('/comprar', async (req, res) => {
-    const newInvestment = await investimentosService.createInvestment(req.body);
+    const { message } = await investimentosService.createInvestment(req.body);
         
-    res.status(200).json(newInvestment);
+    res.status(200).json({ message });
+
+});
+
+investimentosRouter.post('/vender', async (req, res) => {
+    const { message }  = await investimentosService.sellShares(req.body);
+
+    res.status(200).json({ message });
 
 });
 
