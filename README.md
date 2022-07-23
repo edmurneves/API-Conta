@@ -2,6 +2,7 @@
 
 # Contexto
 Este desafio consiste na criação de Endpoints (APIs), seguindo as regras de contrato de Back-End.
+O desenvolvimento seguiu a arquitetura utilizando o conceito de camadas MSC - Models, Services e Controllers.
 
 ### Requisições para investimento
 
@@ -96,28 +97,36 @@ Back-end:
 ## Instalando Dependências
 
 > Backend
+#### Clone o repositório abaixo  para o seu ambiente:
+``` 
+git clone git@github.com:edmurneves/desafioXP.git
+``` 
+#### Acesse o diretorio e faça a instalação das dependências com o comanndo abaixo
 ```bash
 cd api/ 
 npm install
 ``` 
+#### Neste projeto foi utilizado um banco de dados MySQL
+
+#### Execute o script do arquivo que se encontra na raiz do projeto para criar o banco de dados da aplicação. 
+#### Utilize o MySQL WorkBench para rodar o script ou rode direto no CLI do MySQL
+``` 
+desafioXP.sql
+``` 
+Configure o arquivo .env com as variáveis do seu ambiente (credenciais do BD e Porta da aplicação)
+A aplicação está rodando por padrão na Porta 3000 e o BD na Porta padrão 3306
 
 ## Executando aplicação
 
 * Para rodar o back-end:
 
   ```
-  cd api/ && npm start
+  npm run dev
   ```
-* Para rodar o front-end:
+* Para simular as requisições (GET /POST) do front-end, sugerimos o uso do Postman ou Insomia:
+```
+https://www.postman.com/
+https://insomnia.rest/
+```
 
-  ```
-    cd src/ && npm start
-  ```
 
-## Executando Testes
-
-* Para rodar todos os testes:
-
-  ```
-    npm test
-  ```
