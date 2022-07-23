@@ -14,7 +14,7 @@ const createInvestment = async ({codCliente, codAtivo, qtdeAtivo }) => {
     
 
     if (ativosCorretora.qtd < qtdeAtivo) {
-        const error = {status: 400, message: 'Não há quantidade de ações sufuciente para compra'};
+        const error = {status: 400, message: 'Não há quantidade de ações sufucientes para compra'};
         throw error;
     }
 
