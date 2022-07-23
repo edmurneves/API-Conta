@@ -106,7 +106,10 @@ git clone git@github.com:edmurneves/desafioXP.git
 cd api/ 
 npm install
 ``` 
-#### Neste projeto foi utilizado um banco de dados MySQL
+#### Neste projeto foi utilizado um banco de dados MySQL - Seguindo a estrutura de tabelas abaixo.
+
+![image](https://user-images.githubusercontent.com/90069492/180620039-6185ad04-9394-4288-9e91-8378f9fb1b45.png)
+
 
 #### Execute o script do arquivo que se encontra na raiz do projeto para criar o banco de dados da aplicação. 
 #### Utilize o MySQL WorkBench para rodar o script ou rode direto no CLI do MySQL
