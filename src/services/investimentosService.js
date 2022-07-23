@@ -1,4 +1,3 @@
-const investimentosModel = require('../models/investimentosModel');
 const ativosService = require('../services/ativosService');
 const contaService = require('../services/contaService');
 
@@ -14,7 +13,7 @@ const createInvestment = async ({codCliente, codAtivo, qtdeAtivo }) => {
     
 
     if (ativosCorretora.qtd < qtdeAtivo) {
-        const error = {status: 400, message: 'Não há quantidade de ações sufucientes para compra'};
+        const error = {status: 400, message: 'Não há quantidade de ações suficientes para compra'};
         throw error;
     }
 
