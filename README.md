@@ -1,12 +1,17 @@
 # Desafio Técnico XP - BackEnd
 
 # Contexto
-Este desafio consiste na criação de Endpoints (APIs), seguindo as regras de contrato de Back-End.
-O desenvolvimento seguiu a arquitetura utilizando o conceito de camadas MSC - Models, Services e Controllers.
+Este desafio consiste na criação de Endpoints (APIs), seguindo as regras de contrato de Back-End.  
+O desenvolvimento seguiu a arquitetura utilizando o conceito de camadas MSC - Models, Services e Controllers. Separando as responsabilidades em:  
+> **Controllers:** Responsável pelo recebimento das requisições e validações da entrada de dados (req.body, req.params, authorization etc).  
+> **Service:** Responsável pelas regras de negócio e validações mais específicas.  
+> **Models:** Responsável pelas requisições ao Banco de Dados.
+
+
 
 ### Requisições para investimento
 
-#### POST (/investimentos/comprar)
+#### *POST (/investimentos/comprar)*
 
 ``` 
 {
@@ -18,7 +23,7 @@ O desenvolvimento seguiu a arquitetura utilizando o conceito de camadas MSC - Mo
   O endpoint recebe como entrada o código do ativo, a quantidade de ações compradas, número da conta compradora.
 Validação: Quantidade de ativo a ser comprada não pode ser maior que a quantidade disponível na corretora.
 
-#### POST (/investimentos/vender)
+#### *POST (/investimentos/vender)*
 
 ``` 
 {
@@ -31,7 +36,7 @@ Validação: Quantidade de ativo a ser comprada não pode ser maior que a quanti
   O endpoint recebe como entrada o código do ativo, a quantidade de ações vendidas, número da conta vendedora.
 Validação: Quantidade de ativo a ser vendida não pode ser maior que a quantidade disponível na carteira.
 
-#### GET BY CLIENT (/ativos/{cod-client})
+#### *GET BY CLIENT (/ativos/{cod-client})*
 
 ```
 {
@@ -48,7 +53,7 @@ Validação: Quantidade de ativo a ser vendida não pode ser maior que a quantid
 },
 ```
 
-#### GET BY ASSETS (/ativos/{cod-ativo})
+#### *GET BY ASSETS (/ativos/{cod-ativo})*
 ```
 {
   “codAtivo”: integer,		// código de identificação única do ativo
@@ -58,7 +63,7 @@ Validação: Quantidade de ativo a ser vendida não pode ser maior que a quantid
 ```
 ### Requisições para depósitos e saques
 
-#### POST (/conta/deposito)
+#### *POST (/conta/deposito)*
 ```
 {
   “codCliente”: integer,	// código do cliente (identificador único)
@@ -68,7 +73,7 @@ Validação: Quantidade de ativo a ser vendida não pode ser maior que a quantid
 Validação: Quantidade a ser depositada não poderá ser negativa ou igual a zero.
 
 
-#### POST (/conta/saque)
+#### *POST (/conta/saque)*
 ```
 {
   “codCliente”: integer,	// código do cliente (identificador único)
@@ -77,7 +82,7 @@ Validação: Quantidade a ser depositada não poderá ser negativa ou igual a ze
 ```
 Validação: Quantidade a ser sacada não poderá ser maior que o saldo da conta, não pode ser negativa e não pode ser igual a zero.
 
-#### GET (/conta/{cod-cliente})
+#### *GET (/conta/{cod-cliente})*
 ```
 {
   “codCliente”: integer,	// código do cliente (identificador único)
