@@ -108,7 +108,6 @@ git clone git@github.com:edmurneves/desafioXP.git
 ``` 
 #### Acesse o diretorio e faça a instalação das dependências com o comanndo abaixo
 ```bash
-cd api/ 
 npm install
 ``` 
 #### Neste projeto foi utilizado um banco de dados MySQL - Seguindo a estrutura de tabelas abaixo.
