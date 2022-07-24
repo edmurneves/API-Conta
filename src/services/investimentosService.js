@@ -14,7 +14,7 @@ const createInvestment = async ({codCliente, codAtivo, qtdeAtivo }) => {
     let valorCompra = Number(ativosCorretora.valor) * qtdeAtivo; 
       
 
-    if (ativosCorretora.qtd < qtdeAtivo) {
+    if (ativosCorretora.qtdeAtivo < qtdeAtivo) {
         const error = {status: 400, message: 'Não há quantidade de ações suficientes para compra'};
         throw error;
     }
@@ -32,7 +32,7 @@ const createInvestment = async ({codCliente, codAtivo, qtdeAtivo }) => {
         await transacoesModel.updateTransacao(codCliente, codAtivo, newQtde);        
     }
 
-    let newAtivosCorretora = Number(ativosCorretora.qtd - qtdeAtivo);
+    let newAtivosCorretora = Number(ativosCorretora.qtdeAtivo - qtdeAtivo);
     await ativosModel.updateAtivosQtde(codAtivo, newAtivosCorretora );
 
     let newSaldoCliente = saldo - valorCompra;
@@ -55,9 +55,9 @@ const sellShares = async ({codCliente, codAtivo, qtdeAtivo }) => {
     if (ativosCliente.qtde < qtdeAtivo) {
         const error = {status: 400, message: 'A quantidade de ações informada é maior que a disponível na carteira' };
         throw error;
-    }
+    }   
 
-    let newAtivosCorretora = Number(ativosCorretora.qtd + qtdeAtivo);
+    let newAtivosCorretora = Number(ativosCorretora.qtdeAtivo + qtdeAtivo);  
     await ativosModel.updateAtivosQtde(codAtivo, newAtivosCorretora );
 
     newQtde = ativosCliente.qtde - qtdeAtivo;
