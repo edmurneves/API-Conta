@@ -136,5 +136,63 @@ A aplicação está rodando por padrão na Porta 3000 e o BD na Porta padrão 33
 https://www.postman.com/
 https://insomnia.rest/
 ```
+### Exemplos de execução utilizando o POSTMAN  
+```
+Rota http://localhost:3000/conta/c1    //c1 representa cliente 1, c2 cliente 2 etc..
+Retorna o saldo da conta do cliente
+Caso a conta não exista é retornada a mensagem "conta inexistente".
+
+```
+![image](https://user-images.githubusercontent.com/90069492/180653450-44c0d50d-3447-41b3-a2c2-fbf6e1ac72d3.png)
+
+```
+Rota http://localhost:3000/ativos/c1    //c1 representa cliente 1, c2 cliente 2 etc..
+Retorna os ativos que o cliente possui com suas respectivas quantidades
+
+```
+![image](https://user-images.githubusercontent.com/90069492/180654139-05d26bab-3918-4231-b016-340ecd5d4fe6.png)
+
+```
+Rota http://localhost:3000/ativos/a1    //a1 representa o ativo 1 e suas informações.
+Retorna as informações relativas ao ativo da corretora.
+
+```
+![image](https://user-images.githubusercontent.com/90069492/180654278-47ccb9b0-2e56-4e57-a6d7-6bf03c18b8f2.png)
+
+```
+Rota http://localhost:3000/investimentos/comprar  // recebe um requisição com os dados informados no body (imagem abaixo).
+Caso todas as regras de negócio sejam cumpridas, retorna a mensagem "Transação efetuada com sucesso"
+
+```
+![image](https://user-images.githubusercontent.com/90069492/180654376-6f7b7af7-3488-44c3-bef1-65921c86be04.png)
+
+```
+Rota http://localhost:3000/investimentos/vender  // recebe um requisição com os dados informados no body (imagem abaixo).
+Caso todas as regras de negócio sejam cumpridas, retorna a mensagem "Transação efetuada com sucesso"
+
+```
+![image](https://user-images.githubusercontent.com/90069492/180654685-70517c8c-cbd0-448e-993a-800cf2ca8bd5.png)
+
+```
+Rota http://localhost:3000/conta/saque  // recebe um requisição com os dados informados no body (imagem abaixo).
+Caso todas as regras de negócio sejam cumpridas, retorna a mensagem "Saque efetuado com sucesso! Seu saldo atual é de XXXX.XX Reais"
+
+```
+![image](https://user-images.githubusercontent.com/90069492/180654879-ec0f17ce-100d-4c33-8211-aa0b475c15a9.png)
+
+```
+Rota http://localhost:3000/conta/deposito  // recebe um requisição com os dados informados no body (imagem abaixo).
+Caso todas as regras de negócio sejam cumpridas, retorna a mensagem "Deposito efetuado com sucesso! Seu saldo atual é de XXXX.XX Reais"
+
+```
+![image](https://user-images.githubusercontent.com/90069492/180655012-d877954c-fd6b-4e51-b16b-83c1f8661bc2.png)
+
+
+
+
+
+
+
+
 
 
