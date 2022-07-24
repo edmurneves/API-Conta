@@ -3,7 +3,7 @@ const connection = require('../db');
 const getAll = () => connection.execute('SELECT * FROM desafioXP.ativos');
 
 const getById = (id) => connection
-.execute('SELECT * FROM desafioXP.ativos WHERE codAtivo = ?', [id]);
+.execute('SELECT codAtivo, qtd AS qtdeAtivo, valor FROM desafioXP.ativos WHERE codAtivo = ?', [id]);
 
 const updateAtivosQtde = async (codAtivo, qtde) => {
     const query = `UPDATE desafioXP.ativos SET qtd = ? WHERE codAtivo = ?;`
