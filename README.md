@@ -29,7 +29,7 @@ Validação: Quantidade de ativo a ser comprada não pode ser maior que a quanti
 {
   “codCliente”: integer,	// código do cliente (identificador único)
   “codAtivo”: integer,		// código de identificação única do ativo
-  “qtdeAtivo”: integer,	   // quantidade de ações a serem compradas
+  “qtdeAtivo”: integer,	   // quantidade de ações a serem vendidas
 }
 ``` 
 
