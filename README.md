@@ -1,13 +1,28 @@
 # Desafio Técnico XP - BackEnd
 
 # Contexto
-Este desafio consiste na criação de Endpoints (APIs), seguindo as regras de contrato de Back-End.  
+Este desafio consiste na criação de Endpoints (APIs), seguindo as regras de contrato de Back-End. 
 O desenvolvimento seguiu a arquitetura utilizando o conceito de camadas MSC - Models, Services e Controllers. Separando as responsabilidades em:  
 > **Controllers:** Responsável pelo recebimento das requisições e validações da entrada de dados (req.body, req.params, authorization etc).  
 > **Service:** Responsável pelas regras de negócio e validações mais específicas.  
 > **Models:** Responsável pelas requisições ao Banco de Dados.
 
+### Login para autenticação do cliente
 
+``` 
+{
+    "email": "edmur@gmail.com",
+    "password": "123456"
+}
+ Caso o login seja efetuado com sucesso o endpoint retorna um token no formato JWT.
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RDbGllbnRlIjoxLCJub21lIjo
+    iRWRtdXIiLCJlbWFpbCI6ImVkbXVyQGdtYWlsLmNvbSIsImlhdCI6MTY1ODcwNDMxNiwiZXhwIjoxN
+    jU4NzkwNzE2fQ.li7rurPex-sxNHUqGZ6NebZa0_zS_Lh0CLLjF_gU9CQ"
+}
+** OBS: As rotas iniciadas em /conta necessitam autenticação, portanto o token deve ser inserido no header da requisição. 
+
+``` 
 
 ### Requisições para investimento
 
@@ -96,7 +111,7 @@ Validação: Quantidade a ser sacada não poderá ser maior que o saldo da conta
 ## Técnologias usadas
 
 Back-end:
-> Desenvolvido usando: NodeJS, ExpressJS, MYSQL, ES6
+> Desenvolvido usando: NodeJS, ExpressJS, JWT-Json Web Token, MYSQL, ES6
 
 
 ## Instalando Dependências
@@ -135,13 +150,36 @@ A aplicação está rodando por padrão na Porta 3000 e o BD na Porta padrão 33
 https://www.postman.com/
 https://insomnia.rest/
 ```
-### Exemplos de execução utilizando o POSTMAN  
+### Exemplos de execução utilizando o POSTMAN 
+
 ```
+Rota http://localhost:3000/login
+
+{
+    "email": "edmur@gmail.com",
+    "password": "123456"
+}
+
+Retorno
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RDbGllbnRlIjoxLCJub21lIjoiRWRtdXIi
+    LCJlbWFpbCI6ImVkbXVyQGdtYWlsLmNvbSIsImlhdCI6MTY1ODcwNDMxNiwiZXhwIjoxNjU4NzkwNzE2fQ.li7r
+    urPex-sxNHUqGZ6NebZa0_zS_Lh0CLLjF_gU9CQ"
+}
+
+```
+![image](https://user-images.githubusercontent.com/90069492/180670019-43a62c46-47d2-4cbf-9356-42eb1c0f8d41.png)
+
+```
+** Essa rota necessita autenticação!! Insira o token na chave Authorization no Postman!!
 Rota http://localhost:3000/conta/c1    //c1 representa cliente 1, c2 cliente 2 etc..
 Retorna o saldo da conta do cliente
 Caso a conta não exista é retornada a mensagem "conta inexistente".
 
 ```
+![image](https://user-images.githubusercontent.com/90069492/180670181-eb1193f0-8918-42f7-9d4d-319bba86bb2c.png)
+
+
 ![image](https://user-images.githubusercontent.com/90069492/180653450-44c0d50d-3447-41b3-a2c2-fbf6e1ac72d3.png)
 
 ```
@@ -173,6 +211,7 @@ Caso todas as regras de negócio sejam cumpridas, retorna a mensagem "Transaçã
 ![image](https://user-images.githubusercontent.com/90069492/180654685-70517c8c-cbd0-448e-993a-800cf2ca8bd5.png)
 
 ```
+** Essa rota necessita autenticação!! Insira o token na chave Authorization no Postman!!
 Rota http://localhost:3000/conta/saque  // recebe um requisição com os dados informados no body (imagem abaixo).
 Caso todas as regras de negócio sejam cumpridas, retorna a mensagem "Saque efetuado com sucesso! Seu saldo atual é de XXXX.XX Reais"
 
@@ -180,6 +219,7 @@ Caso todas as regras de negócio sejam cumpridas, retorna a mensagem "Saque efet
 ![image](https://user-images.githubusercontent.com/90069492/180654879-ec0f17ce-100d-4c33-8211-aa0b475c15a9.png)
 
 ```
+** Essa rota necessita autenticação!! Insira o token na chave Authorization no Postman!!
 Rota http://localhost:3000/conta/deposito  // recebe um requisição com os dados informados no body (imagem abaixo).
 Caso todas as regras de negócio sejam cumpridas, retorna a mensagem "Deposito efetuado com sucesso! Seu saldo atual é de XXXX.XX Reais"
 
