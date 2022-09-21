@@ -1,4 +1,4 @@
-# Desafio Técnico XP - BackEnd
+# Desafio Técnico - BackEnd
 
 # Contexto
 Este desafio consiste na criação de Endpoints (APIs), seguindo as regras de contrato de Back-End. 
